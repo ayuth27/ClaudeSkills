@@ -1,0 +1,125 @@
+{
+  "site": {
+    "url": "https://aipass.ai/",
+    "url_contains": "aipass",
+    "load_timeout_s": 60
+  },
+  "cooldown_minutes": 15,
+  "answer": {
+    "first_token_timeout_s": 90,
+    "max_wait_s": 420,
+    "stable_for_s": 3.0,
+    "poll_interval_s": 1.0
+  },
+  "models": {
+    "claude-3.5-sonnet": {
+      "label": "Claude 3.5 Sonnet",
+      "match": ["claude 3.5 sonnet", "claude-3.5-sonnet", "claude 3 5 sonnet", "sonnet 3.5"]
+    },
+    "deepseek-v3": {
+      "label": "DeepSeek-V3",
+      "match": ["deepseek-v3", "deepseek v3", "deepseek chat"]
+    },
+    "deepseek-r1": {
+      "label": "DeepSeek-R1",
+      "match": ["deepseek-r1", "deepseek r1", "deepseek reasoner"]
+    },
+    "typhoon-2": {
+      "label": "Typhoon-2",
+      "match": ["typhoon-2", "typhoon 2", "typhoon2", "typhoon"]
+    },
+    "gemini-3.1-flash-lite": {
+      "label": "Gemini 3.1 Flash Lite",
+      "match": ["gemini 3.1 flash lite", "gemini-3.1-flash-lite", "flash lite", "gemini flash lite"]
+    }
+  },
+  "routes": {
+    "code": {
+      "why": "coding, debugging, refactoring, API and script work",
+      "chain": ["claude-3.5-sonnet", "deepseek-v3", "deepseek-r1", "gemini-3.1-flash-lite"]
+    },
+    "reasoning": {
+      "why": "mathematics, proofs, deep research, multi-step analysis",
+      "chain": ["deepseek-r1", "claude-3.5-sonnet", "deepseek-v3", "gemini-3.1-flash-lite"]
+    },
+    "thai": {
+      "why": "Thai copywriting, rewriting, translation into Thai",
+      "chain": ["typhoon-2", "claude-3.5-sonnet", "gemini-3.1-flash-lite", "deepseek-v3"]
+    },
+    "quick": {
+      "why": "short general questions that need a fast answer",
+      "chain": ["gemini-3.1-flash-lite", "deepseek-v3", "claude-3.5-sonnet", "deepseek-r1"]
+    }
+  },
+  "classifier": {
+    "code": [
+      "code", "coding", "function", "class ", "refactor", "debug", "bug", "stack trace",
+      "traceback", "compile", "unit test", "regex", "api", "endpoint", "sql", "query",
+      "python", "javascript", "typescript", "golang", "rust", "react", "docker",
+      "kubernetes", "git ", "script", "pull request",
+      "เขียนโค้ด", "โค้ด", "ฟังก์ชัน", "แก้บั๊ก", "ดีบั๊ก", "สคริปต์",
+      "โปรแกรม", "รีฟักเตอร์", "เขียนโปรแกรม"
+    ],
+    "reasoning": [
+      "prove", "proof", "theorem", "integral", "derivative", "matrix", "probability",
+      "statistics", "optimi", "equation", "calculate", "computation", "solve for",
+      "step by step", "deep research", "literature review", "compare in depth",
+      "trade-off analysis", "root cause",
+      "คำนวณ", "พิสูจน์", "สมการ", "คณิตศาสตร์", "สถิติ", "ความน่าจะเป็น",
+      "วิจัย", "วิเคราะห์เชิงลึก", "หาค่า", "ทีละขั้นตอน"
+    ],
+    "thai": [
+      "แต่ง", "เขียนบทความ", "เรียบเรียง", "ขัดเกลา", "แคปชั่น", "คำโฆษณา",
+      "กลอน", "บทกวี", "จดหมาย", "อีเมล", "ประกาศ", "พาดหัว",
+      "แปลเป็นไทย", "แปลไทย", "สรุปเป็นไทย", "ภาษาไทย", "ปรับสำนวน", "เขียนใหม่",
+      "thai copy", "in thai", "into thai", "thai article", "thai caption"
+    ],
+    "quick": [
+      "quick", "quickly", "briefly", "one line", "tl;dr", "what is", "who is", "when is",
+      "define ", "shortly",
+      "สั้นๆ", "เร็วๆ", "คืออะไร", "แปลว่า", "สั้น ๆ", "ตอบสั้น"
+    ]
+  },
+  "rate_limit": {
+    "http_status": [429, 402],
+    "text_patterns": [
+      "rate limit", "rate-limit", "too many requests", "quota exceeded",
+      "usage limit", "limit reached", "out of credits",
+      "insufficient balance", "is overloaded", "at capacity",
+      "เกินโควต้า", "ใช้งานครบ", "เต็มโควต้า", "เครดิตหมด"
+    ]
+  },
+  "selectors": {
+    "input": [
+      "div[contenteditable='true']",
+      "textarea[placeholder]",
+      "textarea"
+    ],
+    "send_button": [
+      "button[data-testid*='send' i]",
+      "button[aria-label*='send' i]",
+      "form button[type='submit']"
+    ],
+    "stop_button": [
+      "button[data-testid*='stop' i]",
+      "button[aria-label*='stop' i]"
+    ],
+    "model_picker": [
+      "[data-testid*='model' i]",
+      "button[aria-haspopup='listbox']",
+      "button[aria-haspopup='menu']"
+    ],
+    "model_option": [
+      "[role='option']",
+      "[role='menuitem']",
+      "[role='menuitemradio']",
+      "li[data-value]"
+    ],
+    "assistant_message": [
+      "[data-message-author-role='assistant']",
+      "[data-role='assistant']",
+      ".assistant-message",
+      "[class*='assistant' i][class*='message' i]"
+    ]
+  }
+}
