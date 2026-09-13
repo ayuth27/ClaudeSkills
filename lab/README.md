@@ -7,6 +7,7 @@ Skills here are **not part of the curated set** on the repo homepage. They work,
 | Skill | What it does | 说明 |
 |-------|--------------|------|
 | [`a-share-analyst`](Geek-skills-a-share-analyst/SKILL.md) | A-share technical & fundamental analysis (research aid, **not investment advice**) | A 股技术面与基本面分析（研究辅助，**非投资建议**） |
+| [`aipass-auto-router`](Geek-skills-aipass-auto-router/SKILL.md) | Task-aware model routing on a logged-in multi-model chat site via CDP, with 15-minute rate-limit failover | เลือกโมเดลตามงานผ่านเบราว์เซอร์ที่ล็อกอินไว้ สลับโมเดลสำรองเองเมื่อติด rate limit |
 | [`gaokao-expert`](Geek-skills-gaokao-expert/SKILL.md) | Gaokao question design expert | 高考命题专家 |
 | [`podcast-generator`](Geek-skills-podcast-generator/SKILL.md) | Volcano Engine dual-speaker AI podcast generator | 火山引擎双人 AI 播客生成 |
 | [`seedream-imagegen`](Geek-skills-seedream-imagegen/SKILL.md) | Seedream 4.0 image generation | Seedream 4.0 图像生成 |
